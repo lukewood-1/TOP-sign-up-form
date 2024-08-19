@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sign Up Form - TOP</title>
+	<meta name='viewport' content='width=device-width, initial-scale=1.0'>
+	<link rel='stylesheet' href='./style.css'>
+	<script src='main.js' defer></script>
+</head>
+<body>
+	<main>
+		<div class="img-panel">
+			<div class="logo">
+				<img src="./odin-lined.png" alt="odin-logo"><span class="logo-text">ODIN</span>
+			</div>
+			<p>image by <a href="https://unsplash.com/@clarktibbs?utm_content=creditCopyText&utm_medium=referral&utm_source=unsplash">Clark Tibbs</a></p>
+		</div>
+		
+		<div class="form-panel">
+		<div class="pre-form">
+			<h1>Sign-up Form</h1>
+				<p>Time to sign up for greatness! Use this form to enroll in the best course you've ever done, the ONLY one you need to achieve... whatever you're striving to! Like magic!</p>
+		</div>
+		
+			<form action="#" method='GET'>
+				<h3>(Note: all forms are required to fill, except either phone number or email)</h3>
+				<ul>
+				<div class="form-control">
+					<li>
+						<label for="first-name">first name: </label>
+						<input id="first-name" type="text" name="first-name" required>
+						<p class="feedback"></p>
+					</li>
+					<li>
+						<label for='last-name'>last name: </label>
+						<input id="last-name" type="text" name="last-name">
+						<p class="feedback"></p>
+					</li>
+				</div>
+				<div class="form-control">
+					<li>
+						<label for="email">email: </label>
+						<input id="email" type="email" name="email">
+						<p class="feedback"></p>
+					</li>
+					<li>
+						<label for="phone">phone number: </label>
+						<input id="phone" type="tel" name="phone">
+						<p class="feedback"></p>
+					</li>
+				</div>
+				<div class="form-control">
+					<li>
+						<label for="password">password: </label>
+						<input id="password" type="password" name="password">
+						<p class="feedback"></p>
+					</li>
+					<li>
+						<label for="confirm-password">confirm password: </label>
+						<input id="confirm-password" type="password" name="confirm-password">
+						<p class="feedback"></p>
+					</li>
+				</div>
+				<div class="footer">
+					<button type="submit">Create Account</button>
+					<p>Already have an account?<span><a href="#"> Log in</a>
+		</span></p>
+				</div>
+				</ul>
+			</form>
+		</div>
+	</main>
+</body>
+</html>

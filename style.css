@@ -1,0 +1,362 @@
+
+@font-face {
+    font-family: 'cooper_hewittbook';
+    src: url('./fonts/cooper-hewitt/cooperhewitt-book-webfont.woff2') format('woff2'),
+         url('./fonts/cooper-hewitt/cooperhewitt-book-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'cooper_hewittlight';
+    src: url('./fonts/cooper-hewitt/cooperhewitt-light-webfont.woff2') format('woff2'),
+         url('./fonts/cooper-hewitt/cooperhewitt-light-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'pt_sansbook';
+    src: url('./fonts/ptSans/PTS55F-webfont.eot');
+    src: url('./fonts/ptSans/PTS55F-webfont.eot?#iefix') format('embedded-opentype'),
+         url('./fonts/ptSans/PTS55F-webfont.woff2') format('woff2'),
+         url('./fonts/ptSans/PTS55F-webfont.woff') format('woff'),
+         url('./fonts/ptSans/PTS55F-webfont.ttf') format('truetype'),
+         url('./fonts/ptSans/PTS55F-webfont.svg#pt_sansregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'norsebold';
+    src: url('./fonts/norse-bold/norse-bold-webfont.woff2') format('woff2'),
+         url('./fonts/norse-bold/norse-bold-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+:root {
+	--font-clr: #222;
+	--accent-clr:#33333319;
+	--border-clr: hsl(0 0 0 / .3);
+	--img-div-text: #eee;
+	--transit: all .25s ease-in;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+	font-size: 15px;
+	overflow-x: clip;
+}
+
+ul, li {
+	list-style: none;
+}
+
+
+main {
+	display: flex; 
+	max-width: 1440px;
+	overflow-x: clip;
+}
+
+/* Image div */
+
+.img-panel {
+	width: min(300px + 2vw, 30vw);
+	min-height: 100%;
+	background: linear-gradient(to bottom, #888, #333 30%, #888),
+	url('./bg-imager.jpg');
+	background-blend-mode: screen;
+	background-size: 100%;
+	background-position: 0 20%, -0px 49%;
+	background-repeat: no-repeat;
+	display: flex;
+	gap: 1vw;
+	flex: 0 0 25%;
+	flex-flow: row-reverse wrap;
+	justify-content: center;
+	color: var(--img-div-text);
+}
+
+.logo {
+	width: 100%;
+	height: 200px;
+	display: flex;
+	justify-content: center;
+	align-self: flex-start;
+	position: relative;
+	padding: 1.5rem 0;
+	top: 12%;
+	flex-flow: row;
+	background: var(--accent-clr);
+}
+
+.logo img {
+	width: max(20% + 5vw, 120px);
+	height: calc(100px + 7vh );
+	align-self: center;
+	padding-left: calc(.3rem + .5vw);
+}
+
+.logo .logo-text {
+	font-family: 'norsebold';
+	align-self: center;
+	font-size: calc(1rem + 4vw);
+	padding-right: calc(.3rem + .5vw);
+	text-shadow: 0 0 5px #fff;
+	letter-spacing: calc(.05rem + .125vw);
+	transition: var(--transit);
+	&:hover{
+		text-shadow: 0 0 20px #fff;
+		transition: var(--transit);
+	}
+}
+
+.img-panel p {
+	align-self: flex-end;
+	text-shadow: 0 0 3px #000;
+	font-size: 1rem;
+	padding: .5rem 2rem;
+	border-radius: .5rem;
+	background: var(--border-clr);
+}
+
+.img-panel a {
+	text-shadow: 0 0 3px #000;
+	color: #eee;
+	&:hover {
+		text-shadow: 0 0 5px #ddd;
+	}
+}
+
+/* form controls */
+
+.form-panel {
+	background: var(--main-clr);
+	font-family: 'pt_sansbook';
+	display: flex;
+	flex: 1 0 65%;
+	flex-flow: column;
+	align-items: flex-start;
+	box-sizing: border-box;
+}
+
+.pre-form > h1, .pre-form > p, form > h3, .form-control, .footer > * {
+	margin-left: 2rem;
+}
+
+.pre-form {
+	background: var(--accent-clr);
+	border-bottom: 2px solid var(--border-clr);
+}
+
+.pre-form h1 {
+	min-width: 100%;
+	padding-top: .5rem;
+	margin-bottom: 1rem;
+}
+
+.pre-form > p {
+	margin-bottom: 2rem;
+}
+
+form > h3 {
+	height: 2rem;
+	margin-top: 2rem;
+}
+
+.form-panel ul {
+	display: flex;
+	flex-flow: row wrap;
+	padding: 0;
+	margin: 0;
+	justify-content: flex-start;
+}
+
+.form-panel li {
+	margin-right: 2rem;
+	font-family: 'pt_sansbook';
+	display: flex;
+	flex-flow: column;
+	gap: .1rem;
+	height: 4.5rem;
+}
+
+.form-control:nth-child(3) {
+	margin-bottom: 1rem;
+}
+
+.form-panel .footer {
+	flex: 100%;
+	background: var(--accent-clr);
+	padding-top: 1rem;
+	border-top: 2px solid var(--border-clr);
+}
+
+.form-control {
+	flex: 1 0 50%;
+	display: flex;
+}
+
+.form-control li label {
+	padding: .25rem;
+}
+
+.form-control input:focus {
+	border: 2px solid;
+}
+
+.footer p {
+	padding-bottom: 1rem;
+}
+
+.footer button {
+	padding: .5rem 2rem;
+	margin-top: 1rem;
+	border-radius: .5rem;
+	background: var(--font-clr);
+	color: var(--img-div-text);
+	transition: var(--transit);
+	&:hover {
+		background: var(--img-div-text);
+		color: var(--font-clr);
+		border: 2px solid var(--border-clr);
+		box-shadow: 0 0 5px var(--border-clr);
+		transition: var(--transit);
+	}
+}
+
+.footer a{
+	transition: var(--transit);
+	&:hover {
+	background: var(--accent-clr);
+	color: var(--font-clr);
+	transition: var(--transit);
+	}
+}
+
+/* Typography  */
+
+.pre-form > h1 {
+	font-size: calc(1.75rem + 5.5vh);
+	letter-spacing: calc(.2rem);
+	font-family: 'norsebold';
+}
+
+.pre-form > p {
+	font-size: calc(.8rem + 1vh);
+	width: clamp(45ch, 70%, 70ch);
+	letter-spacing: calc(.05rem + .025vw);
+}
+
+form > h3, .form-control, .form-control input, .footer, .footer button  {
+	font-size: calc(.6rem + .5vw);
+	letter-spacing: calc(.03rem + .05vw);
+}
+
+.pre-form h1, .pre-form p, form *, .footer * {
+	color: var(--font-clr)
+}
+
+/* MEDIA QUERIES  */
+
+@media (max-width: 768px) {
+	.img-panel {
+		background-blend-mode: screen;
+		background-size: calc(380px + 10%), 100%;
+		background-position: 0 20%, -0px 42%;
+		background-repeat: no-repeat;
+	}
+	.logo {
+		background: linear-gradient(to bottom, #00000005, #000000a0 35% 70%, #00000005);
+		padding: 0;
+		height: 27%;
+		flex-flow: column;
+		gap: .5rem;
+	}
+	.logo img {
+		height: calc(50% + 4vh );
+		width: max(2.5rem, 37.5% + 3vw);
+		padding: 0;
+	}
+	.logo .logo-text{
+		font-size: calc(1rem + 5vw);
+		padding: 0;
+	}
+	.img-panel p{
+		padding: 0;
+		font-size: calc(1rem - .3vw);
+	}
+	.pre-form p {
+		font-size: calc(.8rem + .3vw);
+	}
+}
+
+@media (max-width: 480px) {
+	main {
+		flex-flow: column;
+	}
+	.img-panel {
+		flex-flow: row;
+		min-width: 100%;
+		flex: 100%;
+		background: linear-gradient(to right, #aaa, #444 40% 70%, #aaa),
+		url('./bg-imager.jpg');
+		background-repeat: no-repeat;
+		align-items: flex-start;
+		padding: .5rem 0;
+		background-size: 100%, calc(40% - 2.5vw) 80px;
+		background-position: 100%, 32vw -.35rem;
+	}
+	.logo {
+		justify-content: flex-start;
+		padding-left: .5rem;
+		flex: 1;
+		background: none;
+		flex-flow: row;
+	}
+	.logo img{
+		align-self: center;
+		width: max(17.5% + 1vw, 60px);	
+		height: calc(50px + 1vh);
+	}
+	.logo .logo-text{
+		margin-left: -12px;
+		font-size: calc(1.75rem + .5vw);
+	}
+	.img-panel p {
+		font-size: calc(.5rem + .4vw);
+		padding: .5rem;
+		padding-right: 3vw;
+	}
+}
+
+@media (max-width: 420px){
+	.pre-form > h1, .pre-form > p, form > h3, .form-control, .footer > * {
+		margin-left: .75rem;
+	}
+	.pre-form{
+		display: flex;
+		flex-flow: column;
+		align-items: center;
+	}
+	.pre-form > h1 {
+		padding-left: 2rem;
+	}
+	.pre-form > p {
+		max-width: 90%;
+	}
+	form {
+		display: flex;
+		flex-flow: column;
+	}
+	.form-control {
+		display: block
+	}
+	input {
+		height: 2rem;
+	}
+}
