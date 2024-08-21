@@ -19,7 +19,6 @@
     font-family: 'pt_sansbook';
     src: url('./fonts/ptSans/PTS55F-webfont.eot');
     src: url('./fonts/ptSans/PTS55F-webfont.eot?#iefix') format('embedded-opentype'),
-         url('./fonts/ptSans/PTS55F-webfont.woff2') format('woff2'),
          url('./fonts/ptSans/PTS55F-webfont.woff') format('woff'),
          url('./fonts/ptSans/PTS55F-webfont.ttf') format('truetype'),
          url('./fonts/ptSans/PTS55F-webfont.svg#pt_sansregular') format('svg');
@@ -40,7 +39,8 @@
 	--accent-clr:#33333319;
 	--border-clr: hsl(0 0 0 / .3);
 	--img-div-text: #eee;
-	--transit: all .25s ease-in;
+	--transit: all .2s ease-in;
+	--transit-fast: all .1s ease-in;
 }
 
 body {
@@ -202,11 +202,7 @@ form > h3 {
 }
 
 .form-control li label {
-	padding: .25rem;
-}
-
-.form-control input:focus {
-	border: 2px solid;
+	padding-top: .3rem;
 }
 
 .footer p {
@@ -219,13 +215,17 @@ form > h3 {
 	border-radius: .5rem;
 	background: var(--font-clr);
 	color: var(--img-div-text);
-	transition: var(--transit);
+	transition: var(--transit-fast);
 	&:hover {
 		background: var(--img-div-text);
 		color: var(--font-clr);
 		border: 2px solid var(--border-clr);
 		box-shadow: 0 0 5px var(--border-clr);
-		transition: var(--transit);
+	}
+	&:active{
+	background: var(--font-clr);
+	color: var(--img-div-text);
+	border: 2px groove var(--img-div-text);
 	}
 }
 
@@ -257,8 +257,71 @@ form > h3, .form-control, .form-control input, .footer, .footer button  {
 	letter-spacing: calc(.03rem + .05vw);
 }
 
+.form-control input {
+	font-size: calc(.7rem + .3vw);
+}
+
 .pre-form h1, .pre-form p, form *, .footer * {
 	color: var(--font-clr)
+}
+
+/* Validation styles */
+.feedback {
+	margin: 0;
+	font-size: .7rem;
+	padding-left: .2rem;
+	max-width: 32ch;
+	white-space: wrap;
+}
+
+.form-control input:focus {
+	border: 2px solid;
+	outline: 1.5px solid;
+}
+
+input {
+	color: #000;
+}
+
+label[for*=password] {
+	display: flex;
+	justify-content: space-between;
+}
+
+.show-password button {
+	border: none;
+	background: none;
+	transform: scaleX(1.3);
+	cursor: pointer;
+	border-radius: 50%;
+	transition: var(--transit-fast);
+	&:hover {
+		transform: scaleX(1.75);
+		box-shadow: inset 0 0 7px #0002, 0 0 2px #0003;
+	}
+	&:active {
+		transform: scaleX(2);
+		box-shadow: inset 0 0 11px #0004, 0 0 7px #0003;
+		background: #00f2;
+	}
+};
+
+/* validation class switches */
+
+.notValid {
+	background: #a004;
+	border: 1px solid #f00;
+	outline: 1.5px solid #f00;
+}
+
+.validInput {
+	background: #0a04;
+	border: 1px solid #0404;
+	outline: 1.5px solid #000;
+}
+
+.negFeedback {
+	color: #f00;
 }
 
 /* MEDIA QUERIES  */
@@ -344,7 +407,7 @@ form > h3, .form-control, .form-control input, .footer, .footer button  {
 		align-items: center;
 	}
 	.pre-form > h1 {
-		padding-left: 2rem;
+		padding-left: 2.55rem;
 	}
 	.pre-form > p {
 		max-width: 90%;
@@ -353,10 +416,13 @@ form > h3, .form-control, .form-control input, .footer, .footer button  {
 		display: flex;
 		flex-flow: column;
 	}
+	label {
+		font-size: .85rem;
+	}
 	.form-control {
 		display: block
 	}
 	input {
-		height: 2rem;
+		height: 1.5rem;
 	}
 }
